@@ -1,0 +1,41 @@
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+  background-color: color-mix(in oklch, black 80%, oklch(60% 0.25 300) 20%);
+}
+
+h1 {
+  color: white;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+header label {
+  margin-left: auto;
+}
+
+#selected-time, #any-time {
+  display: block;
+}
+
+#any-time {
+  color: white;
+  font-style: italic;
+}
+label{
+  color: white;
+}
+
+time {
+  color: white;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="map.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Watching!</title>
+    <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+    rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <h1>🚴🏼‍♀️ Bikewatching</h1>
+        <label>
+          Filter by time:
+          <input type="range" id="time-slider" min="-1" max="1440" value="-1">
+          <time id="selected-time"></time>
+          <em id="any-time">(any time)</em>
+        </label>
+    </header>
+    <div id="map"><svg></svg></div>
+    <!-- Legend is dynamically added via JavaScript -->
+    <script src="map.js" type="module"></script>
+</body>
+</html>

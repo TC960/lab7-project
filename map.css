@@ -1,0 +1,95 @@
+html,
+body {
+  margin: 0;
+  padding: 5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Color variables for traffic flow visualization */
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
+#map {
+  width: 100%; 
+  height: 100%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: yellow;
+  opacity: 50%;
+}
+
+#map svg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#map svg circle, .legend > div {
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+#map svg circle {
+  pointer-events: all !important;
+  cursor: pointer;
+  fill: var(--color);
+}
+
+/* Legend styles */
+.legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+  margin-block: 1em;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend > div {
+  flex: 1;
+  padding: 0.5em 1em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  background-color: var(--color);
+  border-radius: 3px;
+}
+
+.legend > div:first-child {
+  text-align: left;
+}
+
+.legend > div:last-child {
+  text-align: right;
+}
+
+/* Custom tooltip styles */
+.station-tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: white;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 10000;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: none;
+  max-width: 200px;
+}
